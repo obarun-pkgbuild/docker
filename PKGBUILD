@@ -3,8 +3,8 @@
 # 						Maintainer: Sébastien "Seblu" Luttringer
 
 pkgname=docker
-pkgver=18.04.0
-pkgrel=2
+pkgver=18.05.0
+pkgrel=3
 epoch=1
 pkgdesc='Pack, ship and run any application as a lightweight container'
 arch=('x86_64')
@@ -14,7 +14,8 @@ depends=('glibc' 'bridge-utils' 'iproute2' 'device-mapper' 'sqlite'
          'libseccomp' 'libtool')
 makedepends=('git' 'go' 'btrfs-progs' 'cmake')
 optdepends=('btrfs-progs: btrfs backend support'
-            'lxc: lxc backend support')
+            'lxc: lxc backend support'
+            'pigz: parallel gzip compressor support')
 # don't strip binaries! A sha1 is used to check binary consistency.
 options=('!strip' '!buildflags')
 # Use exact commit version from Dockerfile, see them in:
@@ -22,7 +23,7 @@ options=('!strip' '!buildflags')
 _RUNC_COMMIT=4fc53a81fb7c994640722ac585fa9ca548971871
 _CONTAINERD_COMMIT=773c489c9c1b21a6d78b5c538cd395416ec50f88
 _TINI_COMMIT=949e6facb77383876aeff8a6944dde66b3089574
-_LIBNETWORK_COMMIT=1b91bc94094ecfdae41daa465cc0c8df37dfb3dd
+_LIBNETWORK_COMMIT=c15b372ef22125880d378167dde44f4b134e1a77
 source=("git+https://github.com/docker/docker-ce.git#tag=v$pkgver-ce"
         "git+https://github.com/opencontainers/runc.git#commit=$_RUNC_COMMIT"
         "git+https://github.com/containerd/containerd.git#commit=$_CONTAINERD_COMMIT"
